@@ -30,6 +30,7 @@
 
 #define MOTOR_3_PWM_A 22
 #define MOTOR_3_PWM_B 23
+#define MOTOR_3_SLP 20
 
 #define MOTOR_4_PWM_A 9
 #define MOTOR_4_PWM_B 6

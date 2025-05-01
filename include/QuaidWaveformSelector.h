@@ -1,12 +1,12 @@
 #include <Arduino.h>
 
-// #define FREQ_2_HZ
+#define FREQ_2_HZ
 // #define FREQ_5_HZ
 // #define FREQ_10_HZ
 // #define FREQ_20_HZ
 // #define FREQ_30_HZ
 // #define FREQ_40_HZ
-#define FREQ_60_HZ
+// #define FREQ_60_HZ
 // #define FREQ_80_HZ
 // #define FREQ_100_HZ // DANGEROUS
 

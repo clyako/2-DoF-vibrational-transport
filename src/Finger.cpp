@@ -31,8 +31,8 @@ void Finger::initialize()
     _motor_1.initialize(_motor_1_pwm_A, _motor_1_pwm_B, _motor_1_slp);
     _motor_2.initialize(_motor_2_pwm_A, _motor_2_pwm_B, _motor_2_slp);
 
-    _encoder_1.initialize();
-    _encoder_2.initialize();
+    _encoder_1.initialize(FILTER_COUNT, FILTER_SAMPLE_PERIOD, 1.0f);
+    _encoder_2.initialize(FILTER_COUNT, FILTER_SAMPLE_PERIOD, -1.0f);
 
     // calibrate encoders
     _motor_1.go_to_end_stop();
@@ -46,11 +46,10 @@ void Finger::initialize()
     delay(100);
 
     // set gains
-    // _motor_1.set_gains(2000, 3.7, (float)_control_loop_period); // right motor
-    // _motor_2.set_gains(2000, 3.7, (float)_control_loop_period); // left motor
-
-    _motor_1.set_gains(4500, 6.0, (float)_control_loop_period); // right motor
-    _motor_2.set_gains(4500, 6.0, (float)_control_loop_period); // left motor
+    // _motor_1.set_gains(4500, 6.0, (float)_control_loop_period); // right motor
+    // _motor_2.set_gains(4500, 6.0, (float)_control_loop_period); // left motor
+    _motor_1.set_gains(200, 0.5, (float)_control_loop_period); // right motor
+    _motor_2.set_gains(200, 0.5, (float)_control_loop_period); // left motor
 
     _motor_1.stop_motor();
     _motor_2.stop_motor();
@@ -184,7 +183,7 @@ void Finger::input_check(int num_times_to_flip_switch)
 void Finger::encoder_check()
 {
     _encoder_1.print_position_change(1);
-    // _encoder_2.print_position_change(2);
+    _encoder_2.print_position_change(2);
 }
 
 void Finger::_toggle_pin()

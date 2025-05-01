@@ -37,11 +37,6 @@ private:
     float _kp = 0;
     float _kd = 0;
 
-    // feedforward position control
-    float _prev_error_feedforward = 0;
-    float _kp_feedforward = 2.0;
-    float _kd_feedforward = 0.5;
-
     // values for printing to the console
     unsigned long _print_period = 1000; // 1 ms
     elapsedMicros _print_timer;
