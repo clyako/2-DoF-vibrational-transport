@@ -20,8 +20,10 @@ public:
            float sampling_rate = CONTROL_LOOP_FREQUENCY);
     void initialize();
     void run();
+    void stop();
     void drive_motors(float _motor_1_position, float _motor_2_position);
     void get_target_positions(float &_motor_1_position, float &_motor_2_position);
+    bool power_switch();
     void input_check(int num_times_to_flip_switch = 3);
     void encoder_check();
 

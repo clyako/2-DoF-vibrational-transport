@@ -15,6 +15,7 @@ public:
     void read_non_blocking_filtered(float &force, uint32_t &force_timestamp);
     void read_raw();
     void zero();
+    void set_friction_offset(float estimated_friction_force);
 
 private:
     float _calibration_slope = 0.000112664059;

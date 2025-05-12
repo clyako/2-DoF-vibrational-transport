@@ -6,7 +6,7 @@ import struct
 
 
 class LogThread(QThread):
-    def __init__(self, port="/dev/cu.usbmodem150120301", log_filename="sensor_data_log.csv", baudrate=115200):
+    def __init__(self, port="/dev/cu.usbmodem153385601", log_filename="data/sensor_data_log.csv", baudrate=115200):
         super().__init__()
         self.ser = serial.Serial(port, baudrate, timeout=0)
         self.log_filename = log_filename
@@ -26,6 +26,7 @@ class LogThread(QThread):
                         if len(data) == self.num_bytes_to_read:
                             position_timestamp, position, force_timestamp, force = struct.unpack('<IfIf', data)
                             line = f"{position_timestamp},{position},{force_timestamp},{force}\n"
+                            print(line)
                             self.buffer.append(line)
 
                             if len(self.buffer) >= self.buffer_size:

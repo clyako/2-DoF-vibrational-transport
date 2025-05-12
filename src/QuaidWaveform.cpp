@@ -21,7 +21,7 @@ QuaidWaveform::QuaidWaveform(float _frequency, float _a_min_gs, float _a_max_gs,
 
 QuaidWaveform::~QuaidWaveform()
 {
-    delete[] _position_table; // Free memory when object is destroyed
+    delete[] _position_table;
 }
 
 void QuaidWaveform::_precompute_waveform()

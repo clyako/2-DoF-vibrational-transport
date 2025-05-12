@@ -46,10 +46,8 @@ void Finger::initialize()
     delay(100);
 
     // set gains
-    // _motor_1.set_gains(4500, 6.0, (float)_control_loop_period); // right motor
-    // _motor_2.set_gains(4500, 6.0, (float)_control_loop_period); // left motor
-    _motor_1.set_gains(200, 0.5, (float)_control_loop_period); // right motor
-    _motor_2.set_gains(200, 0.5, (float)_control_loop_period); // left motor
+    _motor_1.set_gains(4500, 6.0, (float)_control_loop_period); // right motor
+    _motor_2.set_gains(4500, 6.0, (float)_control_loop_period); // left motor
 
     _motor_1.stop_motor();
     _motor_2.stop_motor();
@@ -73,6 +71,12 @@ void Finger::run()
         _motor_1.stop_motor();
         _motor_2.stop_motor();
     }
+}
+
+void Finger::stop()
+{
+    _motor_1.stop_motor();
+    _motor_2.stop_motor();
 }
 
 void Finger::drive_motors(float _motor_1_target_position, float _motor_2_target_position)
@@ -140,6 +144,12 @@ void Finger::get_target_positions(float &_motor_1_target_position, float &_motor
 
     _motor_1_target_position = position * _motor_1_multiplier;
     _motor_2_target_position = position * _motor_2_multiplier;
+}
+
+bool Finger::power_switch()
+{
+    _inputs.update_power_switch();
+    return _inputs.run_device;
 }
 
 void Finger::input_check(int num_times_to_flip_switch)

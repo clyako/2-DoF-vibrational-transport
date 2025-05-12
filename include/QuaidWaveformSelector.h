@@ -1,8 +1,8 @@
 #include <Arduino.h>
 
-#define FREQ_2_HZ
+// #define FREQ_2_HZ
 // #define FREQ_5_HZ
-// #define FREQ_10_HZ
+#define FREQ_10_HZ
 // #define FREQ_20_HZ
 // #define FREQ_30_HZ
 // #define FREQ_40_HZ
@@ -22,33 +22,33 @@ constexpr float min_acceleration_gs = 0.05; // gs
 constexpr float max_acceleration_gs = 0.5;  // gs
 
 #elif defined(FREQ_10_HZ)
-constexpr float quaid_frequency = 10;       // Hz
-constexpr float min_acceleration_gs = 0.08; // gs (1 mm)
-// constexpr float min_acceleration_gs = 0.25; // gs (3 mm)
-constexpr float max_acceleration_gs = 6.0; // gs
+constexpr float quaid_frequency = 10; // Hz
+// constexpr float min_acceleration_gs = 0.08; // gs (1 mm)
+constexpr float min_acceleration_gs = 0.25;  // gs (3 mm)
+constexpr float max_acceleration_gs = 150.0; // gs
 
 #elif defined(FREQ_20_HZ)
 constexpr float quaid_frequency = 20;        // Hz
-constexpr float min_acceleration_gs = 0.25;  // gs
-constexpr float max_acceleration_gs = 200.0; // gs
+constexpr float min_acceleration_gs = 0.6;   // gs
+constexpr float max_acceleration_gs = 150.0; // gs
 
 #elif defined(FREQ_30_HZ)
 constexpr float quaid_frequency = 30; // Hz
-// float min_acceleration_gs = 0.5;   // gs (1 mm)
+// constexpr float min_acceleration_gs = 0.5; // gs (1 mm)
 constexpr float min_acceleration_gs = 2.25;  // gs (3 mm)
-constexpr float max_acceleration_gs = 100.0; // gs
+constexpr float max_acceleration_gs = 150.0; // gs
 
 #elif defined(FREQ_40_HZ)
-constexpr float quaid_frequency = 40; // Hz
-// constexpr float min_acceleration_gs = 3.0;   // gs
-constexpr float min_acceleration_gs = 4.0;   // gs
-constexpr float max_acceleration_gs = 100.0; // gs
+constexpr float quaid_frequency = 40;      // Hz
+constexpr float min_acceleration_gs = 3.0; // gs
+// constexpr float min_acceleration_gs = 4.0;   // gs
+constexpr float max_acceleration_gs = 50.0; // gs
 
 #elif defined(FREQ_60_HZ)
 constexpr float quaid_frequency = 60; // Hz
 // constexpr float min_acceleration_gs = 2.7; // gs (1 mm)
 constexpr float min_acceleration_gs = 5.0;   // gs (3mm)
-constexpr float max_acceleration_gs = 150.0; // gs
+constexpr float max_acceleration_gs = 100.0; // gs
 
 #elif defined(FREQ_80_HZ)
 constexpr float quaid_frequency = 80;        // Hz

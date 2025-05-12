@@ -36,6 +36,10 @@ void LoadCell::read_raw()
 void LoadCell::zero()
 {
     float offset_value = _calibration_slope * read_average(10) + _calibration_intercept;
-    Serial.println(offset_value);
     _offset = offset_value;
+}
+
+void LoadCell::set_friction_offset(float estimated_friction_force)
+{
+    _estimated_friction_force = estimated_friction_force;
 }

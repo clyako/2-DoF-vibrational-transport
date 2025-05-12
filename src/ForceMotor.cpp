@@ -23,31 +23,12 @@ void ForceMotor::force_control(float target_force, float current_force)
     }
 }
 
-void ForceMotor::zeroing_routine(uint32_t retract_time)
-{
-    _retract(retract_time);
-    uint32_t engage_time = retract_time / 2;
-    _engage(engage_time);
-    _retract(retract_time);
-}
-
-void ForceMotor::_retract(uint32_t retract_time)
+void ForceMotor::retract(uint32_t retract_time)
 {
     uint32_t start_time = millis();
     while (millis() - start_time < retract_time)
     {
         drive_motor(0, 500);
-    }
-    stop_motor();
-    delay(200);
-}
-
-void ForceMotor::_engage(uint32_t engage_time)
-{
-    uint32_t start_time = millis();
-    while (millis() - start_time < engage_time)
-    {
-        drive_motor(1, 500);
     }
     stop_motor();
     delay(200);
