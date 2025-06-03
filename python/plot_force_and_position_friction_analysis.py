@@ -10,7 +10,7 @@ def read_data(filename: str):
     part_positions = logged_data["position"].to_numpy()
     force_timestamps = logged_data["force_timestamp"].to_numpy() / 1e6
     force_timestamps -= force_timestamps[0]
-    forces = logged_data["force"].to_numpy()
+    forces = logged_data["force"].to_numpy() * -1
 
     return position_timestamps, part_positions, force_timestamps, forces
 
@@ -31,14 +31,15 @@ def plot_data(position_timestamps, part_positions, force_timestamps, forces):
     ax_1.set_xlabel("Time (s)")
     ax_1.set_ylabel("Position (mm)")
     ax_1.plot(position_timestamps, part_positions, 'r-', label="Position Data", lw=2)
-    ax_1.plot(position_timestamps, best_line_fit(position_timestamps, part_positions), 'r--', label="position fit", lw=2)
+    # ax_1.plot(position_timestamps, best_line_fit(position_timestamps, part_positions), 'r--', label="position fit", lw=2)
 
     ax_2 = ax_1.twinx()
     ax_2.set_ylabel("Force (N)")
     ax_2.plot(force_timestamps, forces, 'b-', label="Force Data", lw=2)
     ax_2.set_ylim(bottom=0)
     mean_force = np.mean(forces)
-    ax_2.axhline(mean_force, color='b', linestyle='--', label="Average Force = {:.2f} N".format(mean_force))
+    ax_2.axhline(mean_force, color='b', linestyle='--',
+                 label="Average Force = {:.2f} ± {:.2f} N".format(mean_force, 2 * np.std(forces)))
 
     fig.tight_layout()
     plt.grid(True, which="both", ls="--")
@@ -51,12 +52,12 @@ def plot_data(position_timestamps, part_positions, force_timestamps, forces):
 
 
 if __name__ == "__main__":
-    filename = "data/sensor_data_log.csv"
+    filename = "data/optimal_a_min_varying_normal_force/sensor_data_log.csv"
     position_timestamps, part_positions, force_timestamps, forces = read_data(filename)
 
     # define cutoffs for data
-    lower_index = 200
-    upper_index = len(position_timestamps) - 200
+    lower_index = 0
+    upper_index = len(position_timestamps) - 0
 
     position_timestamps = position_timestamps[lower_index:upper_index]
     part_positions = part_positions[lower_index:upper_index]

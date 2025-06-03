@@ -50,7 +50,7 @@ def plot_fixed_waveform_varying_normal_force(a_min: float, a_max: float, frequen
 
 
 def plot_optimal_a_min_varying_normal_force(a_max: float, frequency: float, max_amplitude: float = 6):
-    forces = np.linspace(F_n_min, F_n_max, 200)
+    forces = np.linspace(F_n_min, F_n_max, 100)
     T = 1 / frequency
     average_velocities = []
     force_at_max_amplitude = 0
@@ -133,16 +133,27 @@ def plot_frequency_dependence_optimal_a_min(f_min: float = 2, f_max: float = 100
 
 if __name__ == '__main__':
     g = 9.81                    # [m/s^2]
-    a_min = 1.5 * g             # [m/s^2]
-    a_max = 50.0 * g            # [m/s^2]
-    f = 30                      # [Hz]
+    a_min = 10.0 * g             # [m/s^2]
+    a_max = 20.0 * g            # [m/s^2]
+    f = 65                      # [Hz]
     mu_s = 1.2                  # []
     mu_k = 1.06                 # []
-    m = 0.263                   # [kg]
+    m = 0.322                   # [kg]
 
     F_n_min = m * g / mu_s
     F_n_max = m * (a_max - g) / mu_k
 
-    plot_fixed_waveform_varying_normal_force(a_min, a_max, f, max_amplitude=3)
-    # plot_optimal_a_min_varying_normal_force(a_max, f, 2)
-    # plot_frequency_dependence_optimal_a_min()
+    print("Min Force = {:.2f} N, Max Force = {:.2f}".format(F_n_min, F_n_max))
+
+    # plot_fixed_waveform_varying_normal_force(a_min, a_max, f, max_amplitude=3)
+    plot_optimal_a_min_varying_normal_force(a_max=a_max, frequency=f, max_amplitude=3.0)
+    # plot_frequency_dependence_optimal_a_min(max_amplitude=2)
+
+    """
+    Optimal a_min Varying F_n experiment:
+    • Force range is 2.15 N to 46.25 N
+    • Max amplitude is set to 3 mm
+    • Frequency is 70 Hz
+    • a_max is 20g
+    
+    """

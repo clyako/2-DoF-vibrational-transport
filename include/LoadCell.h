@@ -16,11 +16,12 @@ public:
     void read_raw();
     void zero();
     void set_friction_offset(float estimated_friction_force);
+    float friction_compensation(float calculated_force);
 
 private:
-    float _calibration_slope = 0.000112664059;
-    float _calibration_intercept = -11.60340583;
-    float _estimated_friction_force = -0.3;
+    float _calibration_slope = 0.0001093948591;  // 0.000108998498;   // 0.000112664059;
+    float _calibration_intercept = -11.61966783; //-11.38810401; //-11.60340583;
+    float _estimated_friction_force = 0.0;       // 0.52;
     float _offset = 0.0;
     float _alpha = 0.7;
     float _prev_force = 0.0;

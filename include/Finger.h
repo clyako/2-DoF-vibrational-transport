@@ -21,8 +21,10 @@ public:
     void initialize();
     void run();
     void stop();
+    void move_to_center();
     void drive_motors(float _motor_1_position, float _motor_2_position);
     void get_target_positions(float &_motor_1_position, float &_motor_2_position);
+    void set_motor_gains(float kp, float kd);
     bool power_switch();
     void input_check(int num_times_to_flip_switch = 3);
     void encoder_check();

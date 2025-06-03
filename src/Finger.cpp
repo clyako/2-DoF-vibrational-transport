@@ -79,6 +79,16 @@ void Finger::stop()
     _motor_2.stop_motor();
 }
 
+void Finger::move_to_center()
+{
+    if (_control_loop_timer > _control_loop_period)
+    {
+        _control_loop_timer = 0;
+        // add interval timer
+        drive_motors(0, 0);
+    }
+}
+
 void Finger::drive_motors(float _motor_1_target_position, float _motor_2_target_position)
 {
     unsigned long timestamp = millis();
@@ -144,6 +154,12 @@ void Finger::get_target_positions(float &_motor_1_target_position, float &_motor
 
     _motor_1_target_position = position * _motor_1_multiplier;
     _motor_2_target_position = position * _motor_2_multiplier;
+}
+
+void Finger::set_motor_gains(float kp, float kd)
+{
+    _motor_1.set_gains(kp, kd, (float)_control_loop_period); // right motor
+    _motor_2.set_gains(kp, kd, (float)_control_loop_period); // left motor
 }
 
 bool Finger::power_switch()

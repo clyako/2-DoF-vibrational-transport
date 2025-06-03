@@ -9,3 +9,4 @@
 platformio.ini
 test/
 lib/
+python/data/

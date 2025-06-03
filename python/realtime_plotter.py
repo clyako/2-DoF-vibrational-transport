@@ -20,8 +20,8 @@ def listports():
 listports()
 
 # ser = serial.Serial("/dev/cu.usbmodem90392301", 115200, timeout=1)  # Spatula
-# ser = serial.Serial("/dev/cu.usbmodem150120301", 115200, timeout=1)  # Transmission
-ser = serial.Serial("/dev/cu.usbmodem153385601", 115200, timeout=1)  # 2 DoF
+ser = serial.Serial("/dev/cu.usbmodem150120301", 115200, timeout=1)  # Transmission
+# ser = serial.Serial("/dev/cu.usbmodem153385601", 115200, timeout=1)  # 2 DoF
 num_bytes_to_read = 20
 teensy_send_data_rate = 1   # ms
 time_window_size = 0.25        # s
