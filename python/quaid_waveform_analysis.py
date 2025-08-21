@@ -75,7 +75,7 @@ def plot_optimal_a_min_varying_normal_force(a_max: float, frequency: float, max_
     plt.xlabel("Force (N)")
     plt.ylabel("Average Velocity (mm/s)")
     plt.ylim(bottom=0)
-    plt.axvline(x=force_at_max_amplitude, color='k', linestyle='--')
+    # plt.axvline(x=force_at_max_amplitude, color='k', linestyle='--')
     plt.grid()
     plt.show()
 
@@ -121,33 +121,34 @@ def plot_frequency_dependence_optimal_a_min(f_min: float = 2, f_max: float = 100
             optimal_velocity = velocity_at_max_force
         else:
             optimal_velocity = max(average_velocities)
-        optimal_velocities.append(optimal_velocity)
+        optimal_velocities.append(optimal_velocity * 1000)
 
     print("Best Frequency: {:.2f} Hz".format(frequencies[np.argmax(optimal_velocities)]))
     plt.plot(frequencies, optimal_velocities, 'r', lw=2)
     plt.xlabel("Frequency (Hz)")
-    plt.ylabel("Optimal Average Velocity (m/s)")
+    plt.ylabel("Optimal Average Velocity (mm/s)")
     plt.grid()
     plt.show()
 
 
 if __name__ == '__main__':
     g = 9.81                    # [m/s^2]
-    a_min = 10.0 * g             # [m/s^2]
-    a_max = 20.0 * g            # [m/s^2]
-    f = 65                      # [Hz]
-    mu_s = 1.2                  # []
-    mu_k = 1.06                 # []
-    m = 0.322                   # [kg]
+    a_min = 0.35 * g             # [m/s^2]
+    a_max = 3.5 * g            # [m/s^2]
+    f = 10                      # [Hz]
+    mu_s = 0.22                  # []
+    mu_k = 0.19                 # []
+    m = 0.358                   # [kg]
 
     F_n_min = m * g / mu_s
+    # F_n_min = m / mu_s * (a_min + g)
     F_n_max = m * (a_max - g) / mu_k
 
     print("Min Force = {:.2f} N, Max Force = {:.2f}".format(F_n_min, F_n_max))
 
-    # plot_fixed_waveform_varying_normal_force(a_min, a_max, f, max_amplitude=3)
-    plot_optimal_a_min_varying_normal_force(a_max=a_max, frequency=f, max_amplitude=3.0)
-    # plot_frequency_dependence_optimal_a_min(max_amplitude=2)
+    plot_fixed_waveform_varying_normal_force(a_min, a_max, f, max_amplitude=6)
+    # plot_optimal_a_min_varying_normal_force(a_max=a_max, frequency=f, max_amplitude=6.0)
+    # plot_frequency_dependence_optimal_a_min(max_amplitude=3)
 
     """
     Optimal a_min Varying F_n experiment:

@@ -28,9 +28,9 @@ void LoadCell::read_non_blocking_filtered(float &force, uint32_t &force_timestam
     }
 }
 
-void LoadCell::read_raw()
+void LoadCell::read_raw(int num_samples)
 {
-    Serial.println(read());
+    Serial.println(read_average(num_samples));
 }
 
 void LoadCell::zero()

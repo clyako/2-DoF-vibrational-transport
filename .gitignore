@@ -3,10 +3,15 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
+python/data/kinetic_video_data.csv
+python/data/static_video_data.csv
 
 .DS_Store
 .vscode/
 platformio.ini
-test/
 lib/
-python/data/
+python/data/OLD/
+python/data/kinetic/OLD/
+python/data/static/OLD/
+python/data/object_velocity_varying_amax_normal_force/OLD_or_UNUSED/
+

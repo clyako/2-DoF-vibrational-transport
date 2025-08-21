@@ -6,7 +6,10 @@ import struct
 
 
 class LogThread(QThread):
-    def __init__(self, port="/dev/cu.usbmodem150120301", log_filename="data/fixed_waveform_varying_normal_force/sensor_data_log.csv", baudrate=115200):
+    # def __init__(self, port="/dev/cu.usbmodem150120301", log_filename="data/static/static_test_8_2_motor_speed_700_mass_1094.csv", baudrate=115200):
+        # def __init__(self, port="/dev/cu.usbmodem150120301", log_filename="data/kinetic/kinetic_test_8_motor_speed_2000_mass_1094.csv",    baudrate=115200):
+        # def __init__(self, port="/dev/cu.usbmodem150120301", log_filename="data/object_velocity_varying_amax_normal_force/frequency_20_amin_0.7_amax_5.csv", baudrate=115200):
+        # def __init__(self, port="/dev/cu.usbmodem150120301", log_filename="data/object_velocity_varying_amin_normal_force/frequency_15_amin_1.0_amax_10.csv", baudrate=115200):
         super().__init__()
         self.ser = serial.Serial(port, baudrate, timeout=0)
         self.log_filename = log_filename

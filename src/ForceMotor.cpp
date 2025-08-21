@@ -23,13 +23,7 @@ void ForceMotor::force_control(float target_force, float current_force)
     }
 }
 
-void ForceMotor::retract(uint32_t retract_time)
+void ForceMotor::retract()
 {
-    // uint32_t start_time = millis();
-    // while (millis() - start_time < retract_time)
-    // {
-    drive_motor(1, 2500);
-    // }
-    // stop_motor();
-    // delay(200);
+    drive_motor(1, 4000);
 }

@@ -31,8 +31,8 @@ void Finger::initialize()
     _motor_1.initialize(_motor_1_pwm_A, _motor_1_pwm_B, _motor_1_slp);
     _motor_2.initialize(_motor_2_pwm_A, _motor_2_pwm_B, _motor_2_slp);
 
-    _encoder_1.initialize(FILTER_COUNT, FILTER_SAMPLE_PERIOD, 1.0f);
-    _encoder_2.initialize(FILTER_COUNT, FILTER_SAMPLE_PERIOD, -1.0f);
+    _encoder_1.initialize(FILTER_COUNT, FILTER_SAMPLE_PERIOD, -1.0f);
+    _encoder_2.initialize(FILTER_COUNT, FILTER_SAMPLE_PERIOD, 1.0f);
 
     // calibrate encoders
     _motor_1.go_to_end_stop();

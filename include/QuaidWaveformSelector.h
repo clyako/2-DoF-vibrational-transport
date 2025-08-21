@@ -26,25 +26,25 @@ constexpr float max_acceleration_gs = 0.5;  // gs
 #elif defined(FREQ_10_HZ)
 constexpr float quaid_frequency = 10; // Hz
 // constexpr float min_acceleration_gs = 0.08; // gs (1 mm)
-constexpr float min_acceleration_gs = 0.18; // gs (3 mm)
-constexpr float max_acceleration_gs = 50.0; // gs
+constexpr float min_acceleration_gs = 0.35; // gs (4 mm)
+constexpr float max_acceleration_gs = 3.5;  // gs
 
 #elif defined(FREQ_15_HZ)
 constexpr float quaid_frequency = 15; // Hz
 // constexpr float min_acceleration_gs = 0.08; // gs (1 mm)
-constexpr float min_acceleration_gs = 0.8;  // gs (3 mm) // 0.8
-constexpr float max_acceleration_gs = 20.0; // gs
+constexpr float min_acceleration_gs = 1.0;  // gs (3 mm) // 0.8
+constexpr float max_acceleration_gs = 10.0; // gs
 
 #elif defined(FREQ_20_HZ)
-constexpr float quaid_frequency = 20;       // Hz
-constexpr float min_acceleration_gs = 1.0;  // gs
-constexpr float max_acceleration_gs = 25.0; // gs
+constexpr float quaid_frequency = 20;      // Hz
+constexpr float min_acceleration_gs = 0.7; // gs
+constexpr float max_acceleration_gs = 5.0; // gs
 
 #elif defined(FREQ_30_HZ)
-constexpr float quaid_frequency = 30;       // Hz
-constexpr float min_acceleration_gs = 0.75; // gs (1 mm)
+constexpr float quaid_frequency = 30;      // Hz
+constexpr float min_acceleration_gs = 1.0; // gs (1 mm)
 // constexpr float min_acceleration_gs = 2.5;  // gs (3 mm)
-constexpr float max_acceleration_gs = 50.0; // gs
+constexpr float max_acceleration_gs = 20.0; // gs
 
 #elif defined(FREQ_40_HZ)
 constexpr float quaid_frequency = 40; // Hz

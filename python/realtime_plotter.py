@@ -24,7 +24,7 @@ ser = serial.Serial("/dev/cu.usbmodem150120301", 115200, timeout=1)  # Transmiss
 # ser = serial.Serial("/dev/cu.usbmodem153385601", 115200, timeout=1)  # 2 DoF
 num_bytes_to_read = 20
 teensy_send_data_rate = 1   # ms
-time_window_size = 0.25        # s
+time_window_size = 0.5        # s
 y_axis_max = 2.0
 num_data_points = int(time_window_size / (teensy_send_data_rate / 1000))
 refresh_rate = 1           # ms
